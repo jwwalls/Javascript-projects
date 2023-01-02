@@ -1,0 +1,35 @@
+function telephoneCheck(str) {
+ let filterAll = /\D/g;
+ let filterSpaces = /\s+/g
+ let filter1 = /^1/;
+ let filter10 = /\(\d\d\d\)\d\d\d\d\d\d\d|^\d\d\d\d\d\d\d\d\d\d|^\d\d\d\-\d\d\d\-\d\d\d\d|\(\d\d\d\)\d\d\d\-\d\d\d\d/
+ let filter11 = /1\(\d\d\d\)\d\d\d\d\d\d\d|^1\d\d\d\d\d\d\d\d\d\d|^1\d\d\d\-\d\d\d\-\d\d\d\d|\d\(\d\d\d\)\d\d\d\-\d\d\d\d/
+
+ let str2 = str.replace(filterAll, "");
+ let str3 = str.replace(filterSpaces, "")
+ 
+ if(str2.length == 10 ){
+   if(filter10.test(str3)){
+      console.log("Passed " + str)
+      return true;
+    }
+   return false;
+ } 
+
+ if(str2.length == 11){
+ if(filter1.test(str)){
+   if(filter11.test(str3)){
+      console.log("Passed " + str)
+      return true;}
+   }
+   return false 
+}
+return false;
+
+}
+
+telephoneCheck("1 555-555-5555");
+telephoneCheck("1 555 555 5555") 
+telephoneCheck("1 (555) 555-5555")
+telephoneCheck("1 555-555-5555");
+telephoneCheck("1 (555) 555-5555")

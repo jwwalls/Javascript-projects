@@ -1,0 +1,20 @@
+function rot13(str) {
+  let converter = str.split('');
+  console.log(converter);
+
+  for(let letter in converter){
+    if(converter[letter].charCodeAt() >= 65 && converter[letter].charCodeAt() <= 90){
+      converter[letter] = converter[letter].charCodeAt()+13;
+        if(converter[letter] > 90){
+          converter[letter] = converter[letter]-26; 
+        }
+        converter[letter] = String.fromCharCode(converter[letter])
+    }
+  }
+  converter = converter.join("")
+  console.log(converter);
+  
+  return converter;
+}
+
+rot13("SERR PBQR PNZC");
